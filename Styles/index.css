@@ -6,6 +6,10 @@
     text-decoration: none;
     color: black;
 }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
 #container{
     display: grid;
     grid-template-columns: 25% 75%;
@@ -47,7 +51,7 @@
 
 .logo{
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 30% 70%;
     column-gap: 10px;
     align-items: center;
     padding: 0px 10px;
@@ -112,6 +116,7 @@ border-bottom-right-radius: 20%;
     border-radius: 10%;
     font-size: 5px;
     margin-right: 10px;
+    
 }
 .sprintcard>div{
     display: flex;

@@ -28,10 +28,10 @@ function showData(data) {
         let upper = document.createElement("div")
 
         let c1 = document.createElement("div")
-        c1.innerHTML = '<span class="material-icons"> bookmark </span> '+ "Sprint "+el.id
+        c1.innerHTML = '<span class="material-icons md-18"> bookmark </span> '+ "Sprint "+el.id
 
         let c2 = document.createElement("div");
-        c2.innerText = "Created : " + el.startDate;
+        c2.innerText = el.startDate;
 
         let c3 = document.createElement("div");
         c3.innerText = el.description;
@@ -70,7 +70,7 @@ function employeeData(data) {
 
     let c1 = document.createElement("div");
     c1.innerHTML =
-      '<span class="material-icons"> bookmark </span> ' + "EMP " + el.id;
+      '<span class="material-icons md-18"> bookmark </span> ' + "EMP " + el.id;
 
     let c2 = document.createElement("div");
     c2.innerText =  el.name;

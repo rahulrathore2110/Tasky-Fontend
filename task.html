@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./Styles/index.css" />
+    <link rel="stylesheet" href="./Styles/task.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -31,7 +32,7 @@
             <p>Software Project</p>
           </div>
         </div>
-        <div class="bluehover ">
+        <div class="bluehover">
           <a href="./index.html"
             ><span class="material-symbols-outlined"> home </span>Home</a
           >
@@ -54,10 +55,25 @@
           <div class="welcome">Welcome</div>
           <div class="namecurcle">R</div>
         </div>
-        <div id="totalsprints"></div>
-        
+        <div id="totalsprints">
+          <div id="reset"><span class="material-icons md-36">refresh</span></div>
+        </div>
+        <div id="taskboard">
+          <div>
+            <div class="todo">TODO</div>
+            <div id="col1"></div>
+          </div>
+          <div>
+            <div class="inprogress">IN PROGRESS</div>
+            <div id="col2"></div>
+          </div>
+          <div>
+            <div class="done">DONE</div>
+            <div id="col3"></div>
+          </div>
+        </div>
       </section>
     </div>
   </body>
-  <script src="./Scripts/index.js"></script>
+  <script src="./Scripts/task.js"></script>
 </html>

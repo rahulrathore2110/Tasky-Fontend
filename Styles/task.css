@@ -1,0 +1,107 @@
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+#totalsprints {
+  overflow: auto;
+  display: flex;
+  align-items: center;
+}
+
+#totalsprints > .sprintcard {
+  padding: 10px;
+  border-radius: 5%;
+  display: grid;
+}
+.material-icons {
+  margin-right: 0px;
+}
+#taskboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: auto;
+  column-gap: 20px;
+}
+
+#taskboard > div {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  background-color: rgb(244, 245, 247);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  
+}
+
+#taskboard > div > :last-child{
+    display: grid;
+    row-gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    
+}
+
+.taskcard{
+    display: grid;
+    row-gap: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tasklower {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.tasklower> .namecurcle{
+    height: 20px;
+    width: 20px;
+    background-color: rgb(9, 147, 211);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+.tasklower>:first-child{
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+.red{
+    background-color: transparent;
+    color: red;
+}
+
+.yellow{
+    background-color: transparent;
+    color: rgb(4, 180, 233);
+    font-size: 34px;
+}
+
+.green{
+    background-color: transparent;
+    color: green;
+    
+}
+
+#taskboard>div>:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskupper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.taskupper> :last-child{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+

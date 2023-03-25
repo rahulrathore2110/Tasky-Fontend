@@ -6,9 +6,7 @@ async function managerData(managerurl) {
   let res = await fetch(managerurl);
   let data = await res.json();
   showData(data);
-  document.querySelector(".emp").addEventListener("click", () => {
-    employeeData(data);
-  });
+ 
 }
 
 function showData(data) {
@@ -23,8 +21,8 @@ function showData(data) {
     let cont = document.querySelector("#totalsprints");
 
     let sprintdata = document.createElement("div");
-      sprintdata.id = el.id;
-      sprintdata.style.display = "none"
+    sprintdata.id = el.id;
+    sprintdata.style.display = "none";
     let sprintcard = document.createElement("div");
     sprintcard.className = "sprintraws";
     sprintcard.addEventListener("click", () => {
@@ -48,7 +46,9 @@ function showData(data) {
     let c5 = document.createElement("div");
     c5.innerText = el.dueDate;
 
-    sprintcard.append(c1, c2, c3, c5, c4);
+    let c6 = document.createElement("div");
+    c6.innerHTML = `<span class="material-icons">unfold_more</span>`;
+    sprintcard.append(c1, c2, c3, c5, c4,c6);
 
     cont.append(sprintcard, sprintdata);
   });
@@ -56,9 +56,9 @@ function showData(data) {
 
 function gettask(data) {
   let taskdata = data.tasks;
-    let sprintcont = document.getElementById(`${data.id}`);
-    sprintcont.style.display = "block";
-    sprintcont.innerHTML = null
+  let sprintcont = document.getElementById(`${data.id}`);
+  sprintcont.style.display = "block";
+  sprintcont.innerHTML = null;
   taskdata.forEach((el) => {
     console.log(el);
     let cont = document.getElementById(`${data.id}`);
@@ -68,7 +68,7 @@ function gettask(data) {
 
     let c1 = document.createElement("div");
     c1.innerHTML =
-      '<span class="material-icons"> bookmark </span> ' + "Task  " + el.id;
+      '<span class="material-icons md-18"> bookmark </span> ' + "Task  " + el.id;
 
     let c2 = document.createElement("div");
     c2.innerText = el.description;
