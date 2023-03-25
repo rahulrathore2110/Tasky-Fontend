@@ -9,6 +9,8 @@
 #container{
     display: grid;
     grid-template-columns: 25% 75%;
+    
+    
 }
 
 #sidebar{
@@ -19,6 +21,7 @@
 #main {
     height: 100vh;
     padding: 10% 5%;
+    overflow: scroll;
 }
 
 #sidebar{
@@ -83,4 +86,75 @@ border-bottom-right-radius: 20%;
     border-radius: 50%;
     font-size: 20px;
     
+}
+
+#totalsprints{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px 0px;
+    
+}
+
+#totalsprints > .sprintcard{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 20px;
+    border-radius: 5%;
+    display: grid;
+    row-gap: 10px;
+
+}
+
+.material-icons{
+    color: white;
+    background-color: rgb(99, 186, 60);
+    padding: 2px 3px;
+    border-radius: 10%;
+    font-size: 5px;
+    margin-right: 10px;
+}
+.sprintcard>div{
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    justify-content: space-between;
+    
+}
+.sprintcard .namecurcle{
+    background-color: rgb(18, 110, 230);
+    height: 33px;
+    width: 33px;
+    font-size: 17px;
+}
+.sprintcard:hover{
+    background-color: aliceblue;
+}
+
+.sprintcard>div >div{
+    display: flex;
+    align-items: center;
+    
+    
+}
+#employees>.emp{
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 10px;
+   
+}
+
+#empdata{
+    display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 30px 0px;
+}
+
+#empdata > .sprintcard{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 20px;
+        border-radius: 5%;
+        display: grid;
+        row-gap: 10px;
 }
