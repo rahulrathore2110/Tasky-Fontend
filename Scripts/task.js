@@ -1,24 +1,15 @@
-const managerurl = `https://tasky-app-production.up.railway.app/tasky/manager/aman%40gmail.com`;
-const alltask = `https://tasky-app-production.up.railway.app/tasky/tasks/`;
+let user = JSON.parse(localStorage.getItem("user"));
+const managerurl = `https://tasky-app-production.up.railway.app/tasky/manager/${user.email}`;
+
 managerData(managerurl);
-let data;
+
 async function managerData(managerurl) {
   let res = await fetch(managerurl);
   let data = await res.json();
   showData(data);
+ 
+  showtask(data.sprints[0].tasks);
 }
-tasktable(alltask)
-document.querySelector("#reset").addEventListener("click", () => {
- tasktable(alltask);
-});
-
-async function tasktable(alltask) {
-  let res = await fetch(alltask);
-  let data = await res.json();
-  showtask(data);
-}
-
-
 
 function showData(data) {
   document.querySelector(".welcome").innerText = "Welcome, " + data.name;
@@ -29,7 +20,6 @@ function showData(data) {
   let sprint = data.sprints;
 
   sprint.forEach((el) => {
-    
     let cont = document.querySelector("#totalsprints");
 
     let sprintcard = document.createElement("div");
@@ -50,7 +40,6 @@ function showData(data) {
 }
 
 function showtask(el) {
-  
   let col1 = document.querySelector("#col1");
   col1.innerHTML = null;
   let col2 = document.querySelector("#col2");
@@ -60,7 +49,7 @@ function showtask(el) {
   el.forEach((el) => {
     let taskcard = document.createElement("div");
     taskcard.className = "taskcard";
-    taskcard.draggable = "true"
+    taskcard.draggable = "true";
 
     let c2 = document.createElement("div");
     c2.innerText = el.description;

@@ -1,4 +1,5 @@
-const managerurl = `https://tasky-app-production.up.railway.app/tasky/manager/aman%40gmail.com`;
+let user = JSON.parse(localStorage.getItem("user"));
+const managerurl = `https://tasky-app-production.up.railway.app/tasky/manager/${user.email}`;
 const sprintget = `https://tasky-app-production.up.railway.app/tasky/sprint/8`;
 managerData(managerurl);
 let data;
@@ -6,7 +7,6 @@ async function managerData(managerurl) {
   let res = await fetch(managerurl);
   let data = await res.json();
   showData(data);
- 
 }
 
 function showData(data) {
@@ -27,7 +27,7 @@ function showData(data) {
     sprintcard.className = "sprintraws";
     sprintcard.addEventListener("click", () => {
       gettask(el);
-      console.log(el);
+      
     });
 
     let c1 = document.createElement("div");
@@ -48,7 +48,7 @@ function showData(data) {
 
     let c6 = document.createElement("div");
     c6.innerHTML = `<span class="material-icons">unfold_more</span>`;
-    sprintcard.append(c1, c2, c3, c5, c4,c6);
+    sprintcard.append(c1, c2, c3, c5, c4, c6);
 
     cont.append(sprintcard, sprintdata);
   });
@@ -68,7 +68,9 @@ function gettask(data) {
 
     let c1 = document.createElement("div");
     c1.innerHTML =
-      '<span class="material-icons md-18"> bookmark </span> ' + "Task  " + el.id;
+      '<span class="material-icons md-18"> bookmark </span> ' +
+      "Task  " +
+      el.id;
 
     let c2 = document.createElement("div");
     c2.innerText = el.description;

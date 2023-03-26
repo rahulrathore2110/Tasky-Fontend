@@ -4,19 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         letter-spacing: 1px;
-        
       }
       .bgimage {
         background-image: url("./images/bg3.jpg");
@@ -39,26 +41,24 @@
         padding: 20px 40px;
         border-radius: 20px;
         color: white;
-box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
       }
       #formcont form {
         display: grid;
-        
       }
-      form > input{
+      form > input {
         background-color: rgba(245, 235, 235, 0.507);
         border-radius: 10px;
         padding: 10px;
         color: white;
         border: none;
-        
       }
-      a{
+      a {
         text-decoration: none;
-        color:white;
+        color: white;
       }
 
-      #submit{
+      #submit {
         background-color: white;
         color: black;
         font-weight: bolder;
@@ -67,49 +67,76 @@ box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
         width: 80%;
         border-radius: 20px;
       }
-      #submit:hover{
+      #submit:hover {
         background-color: transparent;
-        transition: all,ease-in-out,linear,0.5s;
+        transition: all, ease-in-out, linear, 0.5s;
         color: white;
-       
       }
-      h1{
+      h1 {
         text-align: center;
         margin: 20px 0;
       }
 
-      label{
+      label {
         margin: 10px 0;
-        
       }
-      p{
+      p {
         text-align: center;
         margin-top: 20px;
       }
-      input{
-        outline:none
-        
+      input {
+        outline: none;
       }
-      input:focus{
+      input:focus {
         border: 1px solid white;
       }
     </style>
   </head>
   <body>
+    <script>
+      let user = JSON.parse(localStorage.getItem("user"));
+
+      let url = `https://tasky-app-production.up.railway.app/tasky/manager/${user.email}`;
+      getmanager(url);
+
+      async function getmanager(url) {
+        let res = await fetch(url);
+        let data = await res.json();
+        if (data.password === user.password ) {
+          window.location.href = "./home.html";
+        }
+        user["id"] = data.id
+       localStorage.setItem("user", JSON.stringify(user));
+      }
+    </script>
     <div class="bgimage"></div>
     <div id="formcont">
       <form>
         <h1>WELCOME</h1>
         <label for="email">Email</label>
-        <input type="text" id="email" />
+        <input type="email" id="email" required />
         <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-        />
-        <p>Don't have an account <br><a href="./signup.html">Signup?</a></p>
+        <input type="password" id="password" required />
+        <p>Don't have an account <br /><a href="./signup.html">Signup?</a></p>
         <input type="submit" id="submit" value="Login" />
       </form>
     </div>
   </body>
+  <script>
+    
+    
+    document.querySelector("form").addEventListener("submit", adduser);
+
+    function adduser(event) {
+      event.preventDefault();
+      let email = document.getElementById("email").value;
+      email = email.replace("@", "%40");
+      let obj = {
+        email: email,
+        password: document.getElementById("password").value,
+      };
+      localStorage.setItem("user", JSON.stringify(obj));
+       window.location.reload()
+    }
+  </script>
 </html>

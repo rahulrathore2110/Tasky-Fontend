@@ -1,165 +1,232 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    color: black;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  color: black;
+  
 }
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-#container{
-    display: grid;
-    grid-template-columns: 25% 75%;
-    
-    
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+#container {
+  display: grid;
+  grid-template-columns: 20% 80%;
 }
 
-#sidebar{
-     height: 100vh;
-    padding: 20% 0%;
+#sidebar {
+  height: 100vh;
+  padding: 20% 0%;
 }
 
 #main {
-    height: 100vh;
-    padding: 5% 5%;
-    overflow: scroll;
+  height: 100vh;
+  padding: 5% 5%;
+  overflow: scroll;
 }
 
-#sidebar{
-    background-color: rgb(250,251,252);
-    display: flex;
-    flex-direction: column;
-    row-gap: 2%;
- 
+#sidebar {
+  background-color: rgb(250, 251, 252);
+  display: flex;
+  flex-direction: column;
+  row-gap: 2%;
 }
 
-#main{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+#main {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-#sidebar>div{
-    padding: 10px 10%;
+#sidebar > div {
+  padding: 10px 10%;
 }
 
-#sidebar>div>a {
-    display: flex;
-    column-gap: 10px;
+#sidebar > div > a {
+  display: flex;
+  column-gap: 10px;
 }
 
-.logo{
-    display: grid;
-    grid-template-columns: 30% 70%;
-    column-gap: 10px;
-    align-items: center;
-    padding: 0px 10px;
-  
-    
+.logo {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  column-gap: 10px;
+  align-items: center;
+  padding: 0px 10px;
 }
-.logo img{
-width: 100%;
-border-top-left-radius: 20%;
-border-bottom-right-radius: 20%;
+.logo img {
+  width: 100%;
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
 }
-.activetab , .activetab span , .activetab a{
-    background-color: rgb(230, 239, 252);
-        color: blue;
-}
-
-.bluehover:hover,.bluehover a:hover{
-    background-color: rgb(230, 239, 252);
-    color: blue;
+.activetab,
+.activetab span,
+.activetab a {
+  background-color: rgb(230, 239, 252);
+  color: blue;
 }
 
-#head{
+.bluehover:hover,
+.bluehover a:hover {
+  background-color: rgb(230, 239, 252);
+  color: blue;
+}
+
+#head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.namecurcle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+#totalsprints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 30px 0px;
+}
+
+#totalsprints > .sprintcard {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 20px;
+  border-radius: 5%;
+  display: grid;
+  row-gap: 10px;
+}
+
+.material-icons {
+  color: white;
+  background-color: rgb(99, 186, 60);
+  padding: 2px 3px;
+  border-radius: 10%;
+  font-size: 5px;
+  margin-right: 10px;
+}
+.sprintcard > div {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+  justify-content: space-between;
+}
+.sprintcard .namecurcle {
+  background-color: rgb(18, 110, 230);
+  height: 33px;
+  width: 33px;
+  font-size: 17px;
+}
+.sprintcard:hover {
+  background-color: aliceblue;
+}
+
+.sprintcard > div > div {
+  display: flex;
+  align-items: center;
+}
+#employees > .emp {
+  display: flex;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 10px;
+}
+
+#empdata {
+  display: grid;
+  gap: 10px;
+  padding: 30px 0px;
+}
+
+#empdata > .sprintcard {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  justify-content: space-between;
+  text-align: left;
+}
+
+.emp{
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
-.namecurcle{
+.emp > div{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: blue;
-    padding: 10px;
-    height: 40px;
-    width: 40px;
-    color: white;
-    border-radius: 50%;
-    font-size: 20px;
-    
 }
 
-#totalsprints{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 30px 0px;
-    
+.delete{
+    background-color: transparent;
+    color: red;
 }
 
-#totalsprints > .sprintcard{
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    padding: 20px;
-    border-radius: 5%;
-    display: grid;
-    row-gap: 10px;
+/* Add employee popup css *********************************** */
 
+#addemp {
+  display: flex;
+  padding: 20px;
+  cursor: pointer;
 }
 
-.material-icons{
-    color: white;
+.empdiv {
+  width: 50%;
+  height: 50vh;
+  margin: auto;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  background-color: white;
+  padding: 50px;
+  color: white;
+  outline: 0.5px solid grey;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+.empdiv > div {
+  display: flex;
+  flex-direction: column;
+}
+.empdiv > :first-child {
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.empdiv input {
+  padding: 10px;
+
+  margin-bottom: 15px;
+}
+
+.empdiv button{
     background-color: rgb(99, 186, 60);
-    padding: 2px 3px;
-    border-radius: 10%;
-    font-size: 5px;
-    margin-right: 10px;
-    
-}
-.sprintcard>div{
-    display: flex;
-    align-items: center;
-    column-gap: 30px;
-    justify-content: space-between;
-    
-}
-.sprintcard .namecurcle{
-    background-color: rgb(18, 110, 230);
-    height: 33px;
-    width: 33px;
-    font-size: 17px;
-}
-.sprintcard:hover{
-    background-color: aliceblue;
-}
-
-.sprintcard>div >div{
-    display: flex;
-    align-items: center;
-    
-    
-}
-#employees>.emp{
-    display: flex;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 10px;
-   
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    
 }
 
-#empdata{
-    display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        padding: 30px 0px;
-}
 
-#empdata > .sprintcard{
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        padding: 20px;
-        border-radius: 5%;
-        display: grid;
-        row-gap: 10px;
-}

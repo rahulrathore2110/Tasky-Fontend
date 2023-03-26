@@ -22,7 +22,6 @@
     />
   </head>
   <body>
-   
     <div id="container">
       <section id="sidebar">
         <div class="logo">
@@ -53,19 +52,42 @@
       <section id="main">
         <div id="head">
           <div class="welcome">Welcome</div>
-          <div class="namecurcle">R</div>
+          <div id="logout" class="namecurcle">R</div>
         </div>
         <div id="totalsprints"></div>
+        <div id="addemp">
+          <span class="material-icons"> add_circle </span> Add User
+        </div>
         <div id="employees">
-          <div class="emp">
-            <span class="material-icons md-18"> grid_on </span> Employees
+          <div class="emp" >
+            <div ><span class="material-icons md-18"> grid_on </span> Employees</div>
+            <span class="material-icons">unfold_more</span>
           </div>
-          <div id="empdata">
-
-          </div>
+          
+          <div id="empdata"></div>
         </div>
       </section>
     </div>
+    <!-- add employee popuu******************************** -->
+    <form class="empdiv">
+      <div><span class="material-icons closediv">cancel</span></div>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter Name" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter email" required />
+      </div>
+      <div>
+        <label for="role">Role</label>
+        <input type="text" id="role" placeholder="Enter role" required />
+      </div>
+      <div>
+        <button id="submitemp">ADD EMPLOYEE</button>
+      </div>
+    </form>
   </body>
   <script src="./Scripts/index.js"></script>
+  <script src="./Scripts/utils.js"></script>
 </html>
