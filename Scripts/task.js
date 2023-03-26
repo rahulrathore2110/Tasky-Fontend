@@ -60,6 +60,7 @@ function showtask(el) {
   el.forEach((el) => {
     let taskcard = document.createElement("div");
     taskcard.className = "taskcard";
+    taskcard.draggable = "true"
 
     let c2 = document.createElement("div");
     c2.innerText = el.description;
