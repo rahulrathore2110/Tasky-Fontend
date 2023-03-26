@@ -135,9 +135,9 @@ function submitempdata(event) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var raw = JSON.stringify({
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      role: document.getElementById("role").value,
+      name: name,
+      email: email,
+      role: role,
     });
 
     var requestOptions = {

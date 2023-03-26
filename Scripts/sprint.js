@@ -27,7 +27,6 @@ function showData(data) {
     sprintcard.className = "sprintraws";
     sprintcard.addEventListener("click", () => {
       gettask(el);
-      
     });
 
     let c1 = document.createElement("div");
@@ -60,7 +59,7 @@ function gettask(data) {
   sprintcont.style.display = "block";
   sprintcont.innerHTML = null;
   taskdata.forEach((el) => {
-    console.log(el);
+   
     let cont = document.getElementById(`${data.id}`);
 
     let sprintcard = document.createElement("div");
@@ -88,4 +87,52 @@ function gettask(data) {
     sprintcard.append(c1, c2, c3, c4, c5);
     cont.append(sprintcard);
   });
+}
+
+// Ad spring ***************************************************
+document.querySelector(".closediv").addEventListener("click", closeempform);
+function closeempform() {
+  document.querySelector(".empdiv").style.display = "none";
+}
+document.querySelector("#addsprint").addEventListener("click", addemployee);
+function addemployee() {
+  document.querySelector(".empdiv").style.display = "flex";
+}
+
+document
+  .querySelector("#submitsprint").addEventListener("click", submitsprintdata);
+function submitsprintdata(event) {
+  event.preventDefault();
+  let description = document.getElementById("description").value;
+  let startDate = document.getElementById("startdate").value;
+  let dueDate = document.getElementById("enddate").value;
+
+  if (description != "" && startDate != "" && dueDate != "") {
+    let user = JSON.parse(localStorage.getItem("user"));
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+      description: description,
+      startDate: startDate,
+      dueDate: dueDate,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      `https://tasky-app-production.up.railway.app/tasky/sprint/${user.id}`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+    window.location.reload()
+  } else {
+    alert("form cannot be empty");
+  }
 }

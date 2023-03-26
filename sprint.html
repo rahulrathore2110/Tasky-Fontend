@@ -55,10 +55,33 @@
           <div class="welcome">Welcome</div>
           <div id="logout" class="namecurcle">R</div>
         </div>
-        <div id="totalsprints"></div>
+        <div id="totalsprints">
+          <div id="addsprint">
+          <span class="material-icons"> add_circle </span> Add Sprint
+        </div>
+
+        </div>
        
       </section>
-    </div>
+    </div> 
+     <form class="empdiv">
+      <div><span class="material-icons closediv">cancel</span></div>
+      <div>
+        <label for="description">Description</label>
+        <input type="text" id="description" placeholder="Enter description" required />
+      </div>
+      <div>
+        <label for="startdate">Start Date</label>
+        <input type="date" id="startdate" placeholder="Enter startdate" required />
+      </div>
+      <div>
+        <label for="enddate">End Date</label>
+        <input type="date" id="enddate" placeholder="Enter enddate" required />
+      </div>
+      <div>
+        <button id="submitsprint">ADD EMPLOYEE</button>
+      </div>
+    </form>
   </body>
   <script src="./Scripts/sprint.js"></script>
   <script src="./Scripts/utils.js"></script>
