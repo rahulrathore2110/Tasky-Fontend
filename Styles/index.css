@@ -188,7 +188,7 @@
 
 .empdiv {
   width: 50%;
-  height: 50vh;
+  height: auto;
   margin: auto;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -214,8 +214,10 @@
 
 .empdiv input {
   padding: 10px;
-
+  background-color: transparent;
   margin-bottom: 15px;
+  border: 1px solid rgb(43, 41, 41);
+  border-radius: 10px;
 }
 
 .empdiv button{

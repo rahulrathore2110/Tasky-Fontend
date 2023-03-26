@@ -58,6 +58,9 @@
         <div id="totalsprints">
           
         </div>
+        <div id="addtask">
+          <span class="material-icons">add_task</span>ADD TASK
+        </div>
         <div id="taskboard">
           <div>
             <div class="todo">TODO</div>
@@ -74,6 +77,25 @@
         </div>
       </section>
     </div>
+
+     <form class="empdiv">
+      <div><span class="material-icons closediv">cancel</span></div>
+      <div>
+        <label for="description">Description</label>
+        <input type="text" id="description" placeholder="Enter description" required />
+      </div>
+      <div>
+        <label for="startdate">Start Date</label>
+        <input type="date" id="startdate" placeholder="Enter startdate" required />
+      </div>
+      <div>
+        <label for="enddate">End Date</label>
+        <input type="date" id="enddate" placeholder="Enter enddate" required />
+      </div>
+      <div>
+        <button id="submittask">ADD EMPLOYEE</button>
+      </div>
+    </form>
   </body>
   <script src="./Scripts/task.js"></script>
   <script src="./Scripts/utils.js"></script>

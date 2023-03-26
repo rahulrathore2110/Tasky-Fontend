@@ -7,8 +7,9 @@ async function managerData(managerurl) {
   let res = await fetch(managerurl);
   let data = await res.json();
   showData(data);
- 
+
   showtask(data.sprints[0].tasks);
+  localStorage.setItem("currsprint", JSON.stringify(data.sprints[0].id));
 }
 
 function showData(data) {
@@ -19,14 +20,17 @@ function showData(data) {
 
   let sprint = data.sprints;
 
+
   sprint.forEach((el) => {
     let cont = document.querySelector("#totalsprints");
 
     let sprintcard = document.createElement("div");
     sprintcard.className = "sprintcard";
     sprintcard.addEventListener("click", () => {
+      localStorage.setItem("currsprint",JSON.stringify(el.id))
       showtask(el.tasks);
     });
+
 
     let c1 = document.createElement("div");
     c1.innerHTML =
@@ -65,7 +69,10 @@ function showtask(el) {
 
     let c5 = document.createElement("div");
     c5.className = "namecurcle";
-    c5.innerText = el.employee.email.slice(0, 1).toUpperCase();
+    if (el.employee != null) {
+      c5.innerText = el.employee.email.slice(0, 1).toUpperCase();
+    }
+
     lower.append(c1, c5);
     taskcard.append(c2, lower);
 
@@ -78,4 +85,56 @@ function showtask(el) {
     }
     //   cont.append(taskcard);
   });
+}
+
+// Add task ***************************************************
+
+document.querySelector(".closediv").addEventListener("click", closeempform);
+function closeempform() {
+  document.querySelector(".empdiv").style.display = "none";
+}
+document.querySelector("#addtask").addEventListener("click", addemployee);
+function addemployee() {
+  document.querySelector(".empdiv").style.display = "flex";
+  
+}
+
+document.querySelector("#submittask").addEventListener("click", submitsprintdata);
+function submitsprintdata(event) {
+  event.preventDefault();
+  let description = document.getElementById("description").value;
+  let startDate = document.getElementById("startdate").value;
+  let dueDate = document.getElementById("enddate").value;
+
+  if (description != "" && startDate != "" && dueDate != "") {
+    let user = JSON.parse(localStorage.getItem("user"));
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+      description: description,
+      startDate: startDate,
+      dueDate: dueDate,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    let currsprint = JSON.parse(localStorage.getItem("currsprint"));
+    console.log(currsprint)
+
+    fetch(
+      `https://tasky-app-production.up.railway.app/tasky/tasks/${currsprint}`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+    window.location.reload();
+  } else {
+    alert("form cannot be empty");
+  }
 }
